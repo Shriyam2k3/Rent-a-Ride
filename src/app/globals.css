@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f7f9fc;
+  --foreground: #172033;
+  --primary-navy: #101827;
+  --dark-navy: #172033;
+  --accent-emerald: #10b981;
+  --dark-emerald: #059669;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --soft-bg: #f1f5f9;
+  --text-primary: #172033;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-subtle: #e2e8f0;
+}
+
+.dark {
+  --background: #0b0f17;
+  --foreground: #f8fafc;
+  --primary-navy: #101827;
+  --dark-navy: #0f172a;
+  --accent-emerald: #10b981;
+  --dark-emerald: #059669;
+  --card-bg: #111827;
+  --card-border: #1e293b;
+  --soft-bg: #1a2234;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-subtle: #1e293b;
+}
+
+html {
+  background-color: var(--background);
+  color: var(--text-primary);
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.011em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark body {
+  background-color: #0b0f17;
+  color: #f8fafc;
+}
+
+/* Card and UI utility styles */
+.card-clean {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(16, 24, 39, 0.02), 0 4px 12px rgba(16, 24, 39, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-clean-hover:hover {
+  border-color: rgba(203, 213, 225, 0.9);
+  box-shadow: 0 4px 6px -1px rgba(16, 24, 39, 0.04), 0 10px 24px -3px rgba(16, 24, 39, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print styling for rental passes */
+@media print {
+  header, footer, nav, button, aside {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
