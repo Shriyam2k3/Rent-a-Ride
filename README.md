@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rent a Ride 🚗
 
-## Getting Started
+A modern, full-stack car rental web application built with Next.js, React, Tailwind CSS, MongoDB, and Firebase.
 
-First, run the development server:
+🔗 **Live Demo:** [https://rent-a-ride-nu.vercel.app/](https://rent-a-ride-nu.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Car Catalog & Search:** Browse available rental cars with detailed specs, pricing, and availability.
+- **Booking Management:** Reserve cars seamlessly with real-time date selection and status tracking.
+- **User Authentication:** Secure sign-up and login powered by Firebase Authentication.
+- **User Dashboard:** View and manage personal bookings and reservations.
+- **Admin Panel:** Comprehensive admin dashboard to manage car inventory, upload car images, and review customer bookings.
+- **Image Uploads:** Cloudinary integration for fast, optimized car image storage and delivery.
+- **Responsive & Modern UI:** Designed with modern aesthetics using Tailwind CSS and Lucide icons.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Frontend:** [React 19](https://react.dev/), TypeScript, [Tailwind CSS v4](https://tailwindcss.com/)
+- **Database & ODM:** [MongoDB](https://www.mongodb.com/) with [Mongoose](https://mongoosejs.com/)
+- **Authentication:** [Firebase Authentication](https://firebase.google.com/)
+- **Media Management:** [Cloudinary](https://cloudinary.com/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Deployment:** [Vercel](https://vercel.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ensure you have [Node.js](https://nodejs.org/) (v18+ recommended) and `npm` installed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Shriyam2k3/Rent-a-Ride.git
+   cd Rent-a-Ride
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Create a `.env.local` file in the root directory and configure the required keys:
+   ```env
+   # MongoDB
+   MONGODB_URI=your_mongodb_connection_string
+
+   # Firebase
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+   NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
+
+   # Cloudinary
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open in browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+---
+
+## 🌐 Deployment
+
+The application is deployed on Vercel:
+👉 **[https://rent-a-ride-nu.vercel.app/](https://rent-a-ride-nu.vercel.app/)**
