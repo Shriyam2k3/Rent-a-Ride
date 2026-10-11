@@ -18,37 +18,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("rar_theme") as Theme | null;
-    if (savedTheme === "dark" || savedTheme === "light") {
-      setThemeState(savedTheme);
-      applyTheme(savedTheme);
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const initialTheme = prefersDark ? "dark" : "light";
-      setThemeState(initialTheme);
-      applyTheme(initialTheme);
-    }
+    setThemeState("light");
+    applyTheme("light");
+    localStorage.setItem("rar_theme", "light");
   }, []);
 
   const applyTheme = (t: Theme) => {
     const root = document.documentElement;
-    if (t === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
+    root.classList.remove("dark");
   };
 
   const setTheme = (t: Theme) => {
-    setThemeState(t);
-    localStorage.setItem("rar_theme", t);
-    applyTheme(t);
+    setThemeState("light");
+    localStorage.setItem("rar_theme", "light");
+    applyTheme("light");
   };
 
   const toggleTheme = () => {
-    const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
+    // Pure white and forest green light theme is the active standard
+    setTheme("light");
   };
 
   return (

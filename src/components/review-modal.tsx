@@ -144,14 +144,14 @@ export default function ReviewModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-2.5 rounded-xl border border-slate-200 font-semibold text-xs text-slate-600 hover:bg-slate-50"
+              className="flex-1 py-2.5 rounded-xl border border-[#DDE6DF] font-semibold text-xs text-[#66736A] hover:bg-[#F7FAF7] cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={submitting}
-              className="flex-1 py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-xs hover:bg-emerald-700 disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-sm"
+              className="flex-1 py-2.5 rounded-xl bg-[#173F2D] hover:bg-[#2F7650] text-white font-bold text-xs disabled:opacity-50 flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
             >
               {submitting ? (
                 <>

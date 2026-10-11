@@ -50,8 +50,20 @@ export async function POST(req: Request) {
       notes,
     } = body;
 
-    if (!carId || !userId || !startDate || !endDate) {
-      return NextResponse.json({ error: "Missing required booking details" }, { status: 400 });
+    const missingFields: string[] = [];
+    if (!carId) missingFields.push("Vehicle reference");
+    if (!userId) missingFields.push("Customer account / login session");
+    if (!startDate) missingFields.push("Pickup date");
+    if (!endDate) missingFields.push("Return date");
+
+    if (missingFields.length > 0) {
+      return NextResponse.json(
+        {
+          error: `Missing required booking details: ${missingFields.join(", ")}`,
+          missingFields,
+        },
+        { status: 400 }
+      );
     }
 
     const start = new Date(startDate);

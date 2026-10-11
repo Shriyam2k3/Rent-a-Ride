@@ -51,33 +51,33 @@ export default function AdminReviewsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200/60 inline-block mb-1">
-          Moderation & Feedback
+        <span className="text-xs font-bold uppercase tracking-wider text-[#173F2D] bg-[#EEF5EF] px-2.5 py-1 rounded-md border border-[#DDE6DF] inline-block mb-1">
+          Moderation &amp; Feedback
         </span>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#172033] tracking-tight">
-          Customer Reviews & Ratings
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#18251D] tracking-tight">
+          Customer Reviews &amp; Ratings
         </h1>
-        <p className="text-xs text-slate-500 mt-1">
+        <p className="text-xs text-[#66736A] mt-1">
           Monitor feedback submitted by drivers, inspect ratings, and moderate public feedback.
         </p>
       </div>
 
       {/* Review cards table / grid */}
-      <div className="bg-white border border-slate-200/80 rounded-3xl shadow-xs overflow-hidden">
+      <div className="bg-white border border-[#DDE6DF] rounded-3xl shadow-xs overflow-hidden">
         {loading ? (
-          <div className="py-24 flex flex-col items-center justify-center gap-3 text-slate-400">
-            <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
-            <p className="text-xs font-medium text-slate-500">Loading verified customer reviews...</p>
+          <div className="py-24 flex flex-col items-center justify-center gap-3 text-[#66736A]">
+            <Loader2 className="w-8 h-8 animate-spin text-[#173F2D]" />
+            <p className="text-xs font-medium text-[#66736A]">Loading verified customer reviews...</p>
           </div>
         ) : reviews.length === 0 ? (
-          <div className="py-20 text-center text-xs text-slate-500 space-y-2">
-            <MessageSquare className="w-8 h-8 text-slate-300 mx-auto" />
-            <p className="font-semibold text-slate-700">No customer reviews logged yet.</p>
+          <div className="py-20 text-center text-xs text-[#66736A] space-y-2">
+            <MessageSquare className="w-8 h-8 text-[#66736A] mx-auto" />
+            <p className="font-semibold text-[#18251D]">No customer reviews logged yet.</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-600">
-              <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-400 font-semibold border-b border-slate-200/80">
+            <table className="w-full text-left text-xs text-[#18251D]">
+              <thead className="bg-[#F7FAF7] text-[11px] uppercase tracking-wider text-[#66736A] font-semibold border-b border-[#DDE6DF]">
                 <tr>
                   <th className="px-6 py-3.5">Customer</th>
                   <th className="px-6 py-3.5">Rating</th>
@@ -87,48 +87,48 @@ export default function AdminReviewsPage() {
                   <th className="px-6 py-3.5 text-right">Moderation</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 font-medium">
+              <tbody className="divide-y divide-[#DDE6DF] font-medium">
                 {reviews.map((rev) => (
-                  <tr key={rev._id} className="hover:bg-slate-50/70 transition-colors">
+                  <tr key={rev._id} className="hover:bg-[#F7FAF7] transition-colors">
                     {/* Customer */}
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-slate-100 text-[#172033] flex items-center justify-center font-bold text-xs border border-slate-200">
+                        <div className="w-8 h-8 rounded-full bg-[#EEF5EF] border border-[#DDE6DF] text-[#173F2D] flex items-center justify-center font-bold text-xs">
                           {rev.userName?.charAt(0) || "U"}
                         </div>
-                        <span className="font-bold text-[#172033]">{rev.userName}</span>
+                        <span className="font-bold text-[#18251D]">{rev.userName}</span>
                       </div>
                     </td>
 
                     {/* Rating */}
                     <td className="px-6 py-4">
-                      <div className="flex items-center gap-1 text-amber-500 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/60 w-fit">
+                      <div className="flex items-center gap-1 text-[#A86B18] bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200 w-fit">
                         {[...Array(5)].map((_, i) => (
                           <Star
                             key={i}
                             className={`w-3 h-3 ${
-                              i < rev.rating ? "fill-amber-400 text-amber-400" : "text-slate-200"
+                              i < rev.rating ? "fill-[#A86B18] text-[#A86B18]" : "text-slate-300"
                             }`}
                           />
                         ))}
-                        <span className="font-bold text-[11px] text-[#172033] ml-1">{rev.rating}.0</span>
+                        <span className="font-bold text-[11px] text-[#A86B18] ml-1">{rev.rating}.0</span>
                       </div>
                     </td>
 
                     {/* Comment */}
-                    <td className="px-6 py-4 text-slate-600 max-w-md leading-relaxed italic">
+                    <td className="px-6 py-4 text-[#66736A] max-w-md leading-relaxed italic">
                       &ldquo;{rev.comment}&rdquo;
                     </td>
 
                     {/* Date */}
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
+                    <td className="px-6 py-4 text-[#66736A] whitespace-nowrap">
                       {formatDate(rev.createdAt)}
                     </td>
 
                     {/* Status */}
                     <td className="px-6 py-4">
-                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#237447] bg-[#EEF5EF] px-2.5 py-0.5 rounded-full border border-[#DDE6DF]">
+                        <CheckCircle2 className="w-3 h-3 text-[#237447]" />
                         Published
                       </span>
                     </td>
@@ -138,8 +138,8 @@ export default function AdminReviewsPage() {
                       <button
                         onClick={() => handleDelete(rev._id)}
                         disabled={deletingId === rev._id}
-                        title="Delete review"
-                        className="p-1.5 rounded-lg border border-rose-200 text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                        title="Remove review"
+                        className="p-1.5 rounded-lg border border-[#DDE6DF] text-[#66736A] hover:text-[#B42318] hover:bg-red-50 transition-colors cursor-pointer"
                       >
                         {deletingId === rev._id ? (
                           <Loader2 className="w-3.5 h-3.5 animate-spin" />

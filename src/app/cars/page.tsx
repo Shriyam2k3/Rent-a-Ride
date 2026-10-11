@@ -94,18 +94,18 @@ function CarsListContent() {
   }, [cars]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8 bg-white text-[#18251D]">
       {/* Header Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-200/80">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[#DDE6DF]">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
-            Fleet Discovery
+          <span className="text-xs font-bold uppercase tracking-widest text-[#173F2D]">
+            FLEET DISCOVERY & TELEMETRY
           </span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#172033] mt-0.5">
+          <h1 className="text-3xl sm:text-4xl font-black text-[#18251D] mt-1">
             Available Rental Vehicles
           </h1>
-          <p className="text-xs sm:text-sm text-[#64748B] mt-1">
-            Browse through our verified fleet across Prayagraj and Uttar Pradesh. Transparent rates with instant booking.
+          <p className="text-xs sm:text-sm text-[#66736A] mt-1 max-w-2xl">
+            Browse through our verified protocol fleet across Prayagraj, Lucknow, and Varanasi hubs. Transparent rates with instant booking.
           </p>
         </div>
 
@@ -113,9 +113,9 @@ function CarsListContent() {
         <button
           type="button"
           onClick={() => setMobileFilterOpen(!mobileFilterOpen)}
-          className="lg:hidden inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-[#172033] shadow-xs"
+          className="lg:hidden inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#DDE6DF] text-xs font-bold text-[#18251D] shadow-xs cursor-pointer"
         >
-          <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-600" />
+          <SlidersHorizontal className="w-3.5 h-3.5 text-[#173F2D]" />
           <span>{mobileFilterOpen ? "Hide Filters" : "Show Filters"}</span>
         </button>
       </div>
@@ -123,7 +123,7 @@ function CarsListContent() {
       {/* 2-COLUMN DISCOVERY LAYOUT */}
       <div className="flex flex-col lg:flex-row items-start gap-8">
         {/* LEFT: Filter Sidebar (Desktop Always, Mobile Toggle) */}
-        <div className={`w-full lg:w-72 shrink-0 ${mobileFilterOpen ? "block" : "hidden lg:block"} sticky top-24`}>
+        <div className={`w-full lg:w-72 shrink-0 ${mobileFilterOpen ? "block" : "hidden lg:block"} sticky top-28`}>
           <CarFilters
             filters={filters}
             onChange={handleFilterChange}
@@ -135,12 +135,12 @@ function CarsListContent() {
         {/* RIGHT: Search & Sort Controls + Cars Grid */}
         <div className="flex-1 min-w-0 space-y-6">
           {/* Controls Bar */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 p-3 sm:p-4 shadow-[0_2px_8px_rgba(16,24,39,0.02)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          <div className="bg-white rounded-2xl border border-[#DDE6DF] p-4 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-[#172033]">{cars.length}</span>
-              <span className="text-[#64748B]">vehicles found</span>
+              <span className="font-extrabold text-[#18251D] text-sm">{cars.length}</span>
+              <span className="text-[#66736A]">vehicles available</span>
               {filters.search && (
-                <span className="px-2 py-0.5 rounded-md bg-slate-100 text-[#172033] font-medium">
+                <span className="px-2.5 py-0.5 rounded-md bg-[#EEF5EF] border border-[#DDE6DF] text-[#173F2D] font-medium">
                   for &ldquo;{filters.search}&rdquo;
                 </span>
               )}
@@ -148,16 +148,16 @@ function CarsListContent() {
 
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <span className="text-[#64748B]">Sort:</span>
+                <span className="text-[#66736A]">Sort:</span>
                 <select
                   value={filters.sortBy}
                   onChange={(e) => handleFilterChange({ sortBy: e.target.value })}
-                  className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 text-xs font-semibold text-[#172033] focus:outline-hidden focus:border-emerald-600 cursor-pointer"
+                  className="bg-[#F7FAF7] border border-[#DDE6DF] rounded-xl px-3 py-1.5 text-xs font-bold text-[#18251D] focus:outline-hidden focus:border-[#173F2D] cursor-pointer"
                 >
-                  <option value="recommended">Recommended</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
-                  <option value="rating">Highest Rated</option>
+                  <option value="recommended" className="bg-white text-[#18251D]">Recommended</option>
+                  <option value="price-asc" className="bg-white text-[#18251D]">Price: Low to High</option>
+                  <option value="price-desc" className="bg-white text-[#18251D]">Price: High to Low</option>
+                  <option value="rating" className="bg-white text-[#18251D]">Highest Rated</option>
                 </select>
               </div>
 
@@ -165,7 +165,7 @@ function CarsListContent() {
                 type="button"
                 onClick={fetchCars}
                 title="Refresh list"
-                className="p-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-[#64748B] hover:text-[#172033] transition-colors cursor-pointer"
+                className="p-2 rounded-xl border border-[#DDE6DF] hover:bg-[#F7FAF7] text-[#66736A] hover:text-[#18251D] transition-colors cursor-pointer"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
               </button>
@@ -174,24 +174,24 @@ function CarsListContent() {
 
           {/* Cars Grid */}
           {loading ? (
-            <div className="flex flex-col items-center justify-center py-24 text-slate-400 gap-3">
-              <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
-              <p className="text-xs font-medium text-[#64748B]">Loading fleet inventory...</p>
+            <div className="flex flex-col items-center justify-center py-24 text-[#66736A] gap-3">
+              <Loader2 className="w-8 h-8 animate-spin text-[#173F2D]" />
+              <p className="text-xs font-semibold text-[#66736A]">Loading fleet inventory...</p>
             </div>
           ) : cars.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-2xl border border-slate-200/80 p-8 max-w-md mx-auto space-y-4 shadow-xs">
-              <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto text-[#64748B]">
+            <div className="text-center py-20 bg-white rounded-2xl border border-[#DDE6DF] p-8 max-w-md mx-auto space-y-4 shadow-xs">
+              <div className="w-12 h-12 rounded-xl bg-[#EEF5EF] flex items-center justify-center mx-auto text-[#173F2D]">
                 <Car className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="font-bold text-base text-[#172033]">No vehicles found</h3>
-                <p className="text-xs text-[#64748B] mt-1">
+                <h3 className="font-extrabold text-base text-[#18251D]">No vehicles found</h3>
+                <p className="text-xs text-[#66736A] mt-1">
                   Try adjusting or resetting your search filters to view more fleet options.
                 </p>
               </div>
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-[#101827] text-white rounded-xl text-xs font-semibold hover:bg-[#172033] transition-colors"
+                className="px-5 py-2.5 bg-[#173F2D] text-white rounded-xl text-xs font-bold hover:bg-[#2F7650] shadow-xs cursor-pointer transition-colors"
               >
                 Reset All Filters
               </button>
@@ -211,7 +211,7 @@ function CarsListContent() {
 
 export default function CarsPage() {
   return (
-    <Suspense fallback={<div className="p-12 text-center text-xs text-[#64748B]">Loading cars catalog...</div>}>
+    <Suspense fallback={<div className="p-12 text-center text-xs text-[#66736A]">Loading cars catalog...</div>}>
       <CarsListContent />
     </Suspense>
   );

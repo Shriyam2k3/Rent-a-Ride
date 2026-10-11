@@ -16,7 +16,7 @@ export default function DashboardNav() {
   ];
 
   return (
-    <div className="bg-white border-b border-slate-200">
+    <div className="bg-white border-b border-[#DDE6DF] shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center gap-2 overflow-x-auto py-2.5">
           {links.map((link) => {
@@ -30,10 +30,10 @@ export default function DashboardNav() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
+                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                   isActive
-                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200/60"
-                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                    ? "bg-[#EEF5EF] text-[#173F2D] border border-[#DDE6DF] font-bold"
+                    : "text-[#66736A] hover:text-[#18251D] hover:bg-[#F7FAF7]"
                 }`}
               >
                 <Icon className="w-4 h-4" />

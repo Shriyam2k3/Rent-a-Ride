@@ -269,25 +269,25 @@ export default function LiveTripTracker({
 
   return (
     <div
-      className={`bg-white dark:bg-[#111827] rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-xl overflow-hidden ${className}`}
+      className={`bg-white rounded-3xl border border-[#DDE6DF] shadow-xs overflow-hidden ${className}`}
     >
       {/* HEADER BAR: Live Telemetry Status Banner */}
-      <div className="bg-[#101827] text-white p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800">
+      <div className="bg-[#F7FAF7] text-[#18251D] p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#DDE6DF]">
         <div className="flex items-center gap-3">
           <div className="relative flex items-center justify-center">
-            <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 animate-ping absolute" />
-            <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 relative" />
+            <span className="w-3.5 h-3.5 rounded-full bg-[#173F2D] animate-ping absolute" />
+            <span className="w-3.5 h-3.5 rounded-full bg-[#173F2D] relative" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#173F2D]">
                 Live GPS Trip Tracking
               </span>
-              <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-slate-800 text-slate-300 border border-slate-700">
+              <span className="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#EEF5EF] text-[#173F2D] border border-[#DDE6DF]">
                 Ref #{bookingCode}
               </span>
             </div>
-            <h3 className="text-base sm:text-lg font-black tracking-tight flex items-center gap-2 mt-0.5">
+            <h3 className="text-base sm:text-lg font-black tracking-tight flex items-center gap-2 mt-0.5 text-[#18251D]">
               <span>{tripPhase}</span>
             </h3>
           </div>
@@ -295,34 +295,34 @@ export default function LiveTripTracker({
 
         {/* Live HUD Quick Counters */}
         <div className="flex items-center gap-2 sm:gap-4 text-xs">
-          <div className="bg-slate-800/90 px-3 py-2 rounded-xl border border-slate-700/80 flex items-center gap-2">
-            <Gauge className="w-4 h-4 text-emerald-400 shrink-0" />
+          <div className="bg-white px-3 py-2 rounded-xl border border-[#DDE6DF] flex items-center gap-2 shadow-xs">
+            <Gauge className="w-4 h-4 text-[#173F2D] shrink-0" />
             <div>
-              <span className="text-[10px] text-slate-400 block leading-none">Speed</span>
-              <span className="font-extrabold text-white text-xs">{currentSpeedKmH} km/h</span>
+              <span className="text-[10px] text-[#66736A] block leading-none">Speed</span>
+              <span className="font-extrabold text-[#18251D] text-xs">{currentSpeedKmH} km/h</span>
             </div>
           </div>
 
-          <div className="bg-slate-800/90 px-3 py-2 rounded-xl border border-slate-700/80 flex items-center gap-2">
-            <Clock className="w-4 h-4 text-teal-400 shrink-0" />
+          <div className="bg-white px-3 py-2 rounded-xl border border-[#DDE6DF] flex items-center gap-2 shadow-xs">
+            <Clock className="w-4 h-4 text-[#173F2D] shrink-0" />
             <div>
-              <span className="text-[10px] text-slate-400 block leading-none">ETA</span>
-              <span className="font-extrabold text-white text-xs">{estimatedMinsLeft} mins</span>
+              <span className="text-[10px] text-[#66736A] block leading-none">ETA</span>
+              <span className="font-extrabold text-[#18251D] text-xs">{estimatedMinsLeft} mins</span>
             </div>
           </div>
 
-          <div className="bg-slate-800/90 px-3 py-2 rounded-xl border border-slate-700/80 flex items-center gap-2">
-            <Navigation className="w-4 h-4 text-indigo-400 shrink-0" />
+          <div className="bg-white px-3 py-2 rounded-xl border border-[#DDE6DF] flex items-center gap-2 shadow-xs">
+            <Navigation className="w-4 h-4 text-[#173F2D] shrink-0" />
             <div>
-              <span className="text-[10px] text-slate-400 block leading-none">Remaining</span>
-              <span className="font-extrabold text-white text-xs">{remainingKm} km</span>
+              <span className="text-[10px] text-[#66736A] block leading-none">Remaining</span>
+              <span className="font-extrabold text-[#18251D] text-xs">{remainingKm} km</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* INTERACTIVE MAP CONTAINER */}
-      <div className="relative w-full h-[360px] sm:h-[440px] lg:h-[480px] bg-[#E8EEF5] dark:bg-[#0B132B] overflow-hidden select-none">
+      <div className="relative w-full h-[360px] sm:h-[440px] lg:h-[480px] bg-[#E8EEF5] overflow-hidden select-none">
         {/* If Google Maps API key loaded and ready, allow mounting */}
         {googleMapsReady && (
           <div ref={googleMapRef} className="absolute inset-0 w-full h-full z-0 hidden" />
@@ -331,19 +331,17 @@ export default function LiveTripTracker({
         {/* MAP BACKGROUND CANVAS / CARTOGRAPHY VISUALIZATION */}
         <div
           className={`absolute inset-0 w-full h-full transition-colors duration-500 ${
-            mapStyle === "dark"
-              ? "bg-[#0b0f19]"
-              : mapStyle === "satellite"
+            mapStyle === "satellite"
               ? "bg-[#18231c]"
-              : "bg-[#eaf1f8] dark:bg-[#0c1222]"
+              : "bg-[#eaf1f8]"
           }`}
         >
           {/* Subtle grid pattern resembling real GPS mapping grid */}
           <div
-            className="absolute inset-0 opacity-25 dark:opacity-15 pointer-events-none"
+            className="absolute inset-0 opacity-25 pointer-events-none"
             style={{
               backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(16, 185, 129, 0.4) 1px, transparent 0)",
+                "radial-gradient(circle at 1px 1px, rgba(23, 63, 45, 0.4) 1px, transparent 0)",
               backgroundSize: "28px 28px",
             }}
           />
@@ -498,29 +496,29 @@ export default function LiveTripTracker({
         >
           {/* Dynamic Car Speed & Plate Pill */}
           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 flex flex-col items-center pointer-events-none">
-            <div className="px-2.5 py-1 rounded-full bg-[#101827] text-white text-[10px] font-bold shadow-xl border border-emerald-500/50 flex items-center gap-1.5 whitespace-nowrap animate-bounce duration-1000">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="px-2.5 py-1 rounded-full bg-[#173F2D] text-white text-[10px] font-bold shadow-md border border-[#2F7650] flex items-center gap-1.5 whitespace-nowrap animate-bounce duration-1000">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
               <span>{driver.plateNumber}</span>
-              <span className="text-emerald-400 font-extrabold">({currentSpeedKmH} km/h)</span>
+              <span className="text-emerald-300 font-extrabold">({currentSpeedKmH} km/h)</span>
             </div>
-            <div className="w-2 h-2 bg-[#101827] rotate-45 -mt-1 border-r border-b border-emerald-500/50" />
+            <div className="w-2 h-2 bg-[#173F2D] rotate-45 -mt-1 border-r border-b border-[#2F7650]" />
           </div>
 
           {/* Vehicle Pulsing Icon Oriented by Bearing */}
           <div className="relative flex items-center justify-center">
             {/* GPS Pulse Ring */}
-            <span className="w-12 h-12 rounded-full bg-emerald-500/25 animate-ping absolute" />
-            <span className="w-8 h-8 rounded-full bg-emerald-500/40 absolute" />
+            <span className="w-12 h-12 rounded-full bg-[#173F2D]/20 animate-ping absolute" />
+            <span className="w-8 h-8 rounded-full bg-[#173F2D]/30 absolute" />
 
             {/* Oriented Vehicle Capsule */}
             <div
-              className="w-11 h-11 rounded-full bg-[#101827] text-white border-2 border-emerald-400 flex items-center justify-center shadow-2xl transition-transform duration-300"
+              className="w-11 h-11 rounded-full bg-[#173F2D] text-white border-2 border-white flex items-center justify-center shadow-lg transition-transform duration-300"
               style={{
                 transform: `rotate(${bearing}deg)`,
               }}
               title={`Heading ${bearing}° • ${driver.vehicleModel}`}
             >
-              <Navigation className="w-5 h-5 text-emerald-400 fill-emerald-400" />
+              <Navigation className="w-5 h-5 text-white fill-white" />
             </div>
           </div>
         </div>
@@ -636,27 +634,27 @@ export default function LiveTripTracker({
       </div>
 
       {/* TRIP PROGRESS SLIDER BAR */}
-      <div className="bg-slate-100 dark:bg-slate-800/80 px-4 sm:px-6 py-2.5 border-t border-b border-slate-200 dark:border-slate-800 flex items-center gap-4 text-xs">
-        <span className="font-bold text-slate-500 dark:text-slate-400 text-[11px] uppercase tracking-wider shrink-0">
+      <div className="bg-[#F7FAF7] px-4 sm:px-6 py-2.5 border-t border-b border-[#DDE6DF] flex items-center gap-4 text-xs">
+        <span className="font-bold text-[#66736A] text-[11px] uppercase tracking-wider shrink-0">
           Trip Completion
         </span>
-        <div className="flex-1 bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden relative">
+        <div className="flex-1 bg-[#EEF5EF] h-2.5 rounded-full overflow-hidden relative">
           <div
-            className="bg-emerald-500 h-full rounded-full transition-all duration-300"
+            className="bg-[#173F2D] h-full rounded-full transition-all duration-300"
             style={{ width: `${Math.round(progressFraction * 100)}%` }}
           />
         </div>
-        <span className="font-extrabold text-slate-900 dark:text-white text-xs shrink-0">
+        <span className="font-extrabold text-[#18251D] text-xs shrink-0">
           {Math.round(progressFraction * 100)}%
         </span>
       </div>
 
       {/* BOTTOM INFO PANEL: Driver Card + Turn-by-Turn Directions */}
-      <div className="p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 bg-white dark:bg-[#111827]">
+      <div className="p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 bg-white">
         {/* DRIVER & VEHICLE DETAILS */}
         <div className="lg:col-span-1 space-y-4">
-          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
-            <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-slate-200 shrink-0 border border-slate-300 dark:border-slate-600">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#F7FAF7] border border-[#DDE6DF]">
+            <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-white shrink-0 border border-[#DDE6DF]">
               <Image
                 src={driver.avatar}
                 alt={driver.name}
@@ -666,29 +664,29 @@ export default function LiveTripTracker({
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5">
-                <h4 className="font-extrabold text-sm text-slate-900 dark:text-white truncate">
+                <h4 className="font-extrabold text-sm text-[#18251D] truncate">
                   {driver.name}
                 </h4>
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#173F2D] shrink-0" />
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-[#66736A]">
                 ⭐ {driver.rating} • {driver.tripsCount} trips
               </p>
-              <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase mt-0.5">
+              <p className="text-[11px] font-bold text-[#173F2D] uppercase mt-0.5">
                 Assigned Fleet Pilot
               </p>
             </div>
           </div>
 
           {/* Vehicle summary */}
-          <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80 space-y-2">
+          <div className="p-3.5 rounded-2xl bg-[#F7FAF7] border border-[#DDE6DF] space-y-2">
             <div className="flex justify-between items-center text-xs">
-              <span className="text-slate-500 dark:text-slate-400">Vehicle:</span>
-              <span className="font-bold text-slate-900 dark:text-white">{carTitle}</span>
+              <span className="text-[#66736A]">Vehicle:</span>
+              <span className="font-bold text-[#18251D]">{carTitle}</span>
             </div>
             <div className="flex justify-between items-center text-xs">
-              <span className="text-slate-500 dark:text-slate-400">Plate Number:</span>
-              <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+              <span className="text-[#66736A]">Plate Number:</span>
+              <span className="font-mono font-bold text-[#173F2D]">
                 {driver.plateNumber}
               </span>
             </div>
@@ -698,7 +696,7 @@ export default function LiveTripTracker({
           <div className="grid grid-cols-2 gap-2">
             <a
               href={`tel:${driver.phone}`}
-              className="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+              className="py-2.5 px-3 rounded-xl bg-[#173F2D] hover:bg-[#2F7650] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>Call Driver</span>
@@ -707,9 +705,9 @@ export default function LiveTripTracker({
             <button
               type="button"
               onClick={handleShare}
-              className="py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+              className="py-2.5 px-3 rounded-xl border border-[#DDE6DF] text-[#18251D] hover:bg-[#F7FAF7] font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
             >
-              <Share2 className="w-3.5 h-3.5 text-slate-400" />
+              <Share2 className="w-3.5 h-3.5 text-[#66736A]" />
               <span>{copiedLink ? "Link Copied!" : "Share Live"}</span>
             </button>
           </div>
@@ -742,28 +740,28 @@ export default function LiveTripTracker({
                   key={idx}
                   className={`p-3 rounded-2xl border text-xs flex items-start gap-3 transition-colors ${
                     isCurrentStep
-                      ? "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-slate-900 dark:text-white font-semibold"
+                      ? "bg-[#EEF5EF] border-[#DDE6DF] text-[#18251D] font-semibold"
                       : isPastStep
-                      ? "bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-400 line-through"
-                      : "bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300"
+                      ? "bg-[#F7FAF7] border-[#DDE6DF] text-[#66736A] line-through"
+                      : "bg-white border-[#DDE6DF] text-[#18251D]"
                   }`}
                 >
                   <div
                     className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 text-[11px] font-bold ${
                       isCurrentStep
-                        ? "bg-emerald-600 text-white"
+                        ? "bg-[#173F2D] text-white"
                         : isPastStep
-                        ? "bg-slate-200 dark:bg-slate-700 text-slate-500"
-                        : "bg-slate-100 dark:bg-slate-800 text-slate-600"
+                        ? "bg-[#DDE6DF] text-[#66736A]"
+                        : "bg-[#F7FAF7] text-[#18251D]"
                     }`}
                   >
                     {idx + 1}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-bold">{step.instruction}</p>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400">{step.street}</p>
+                    <p className="text-[11px] text-[#66736A]">{step.street}</p>
                   </div>
-                  <span className="text-[11px] font-bold text-slate-400 shrink-0">
+                  <span className="text-[11px] font-bold text-[#66736A] shrink-0">
                     {step.distanceKm} km
                   </span>
                 </div>

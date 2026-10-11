@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} font-sans min-h-screen bg-[#F7F9FC] dark:bg-[#0b0f17] text-[#172033] dark:text-[#f8fafc] antialiased flex flex-col transition-colors duration-200`}
+        className={`${inter.variable} font-sans min-h-screen bg-[#FFFFFF] text-[#18251D] antialiased flex flex-col transition-colors duration-200 selection:bg-[#173F2D] selection:text-white`}
       >
         <ThemeProvider>
           <LanguageProvider>

@@ -18,7 +18,7 @@ import {
 export default function AdminNav() {
   const pathname = usePathname();
   const { user, mongoUser } = useAuth();
-  const adminName = user?.displayName || mongoUser?.name || "Shriyam";
+  const adminName = user?.displayName || mongoUser?.name || "Admin";
 
   const links = [
     { name: "Overview", href: "/admin", icon: LayoutDashboard },
@@ -29,19 +29,19 @@ export default function AdminNav() {
   ];
 
   return (
-    <div className="bg-slate-900 border-b border-slate-800 text-white">
+    <div className="bg-white border-b border-[#DDE6DF] text-[#18251D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3">
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1 bg-slate-800/80 px-2.5 py-1.5 rounded-lg border border-slate-700/60"
+              className="text-xs font-semibold text-[#66736A] hover:text-[#18251D] flex items-center gap-1 bg-[#F7FAF7] hover:bg-[#EEF5EF] px-2.5 py-1.5 rounded-lg border border-[#DDE6DF] transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               Main Site
             </Link>
-            <div className="h-4 w-px bg-slate-700" />
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20 flex items-center gap-1.5">
+            <div className="h-4 w-px bg-[#DDE6DF]" />
+            <span className="text-xs font-bold uppercase tracking-wider text-[#173F2D] bg-[#EEF5EF] px-2.5 py-1 rounded-md border border-[#DDE6DF] flex items-center gap-1.5">
               <Shield className="w-3.5 h-3.5" />
               Admin Portal • {adminName}
             </span>
@@ -49,7 +49,7 @@ export default function AdminNav() {
 
           <Link
             href="/admin/cars/new"
-            className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-xl text-xs font-semibold shadow-xs shadow-emerald-500/20 transition-colors"
+            className="inline-flex items-center gap-1.5 bg-[#173F2D] hover:bg-[#2F7650] text-white px-3.5 py-1.5 rounded-xl text-xs font-extrabold shadow-sm transition-all"
           >
             <PlusCircle className="w-3.5 h-3.5" />
             Add New Vehicle
@@ -71,8 +71,8 @@ export default function AdminNav() {
                 href={link.href}
                 className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
                   isActive
-                    ? "bg-emerald-600/20 text-emerald-300 border border-emerald-500/30"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/50"
+                    ? "bg-[#EEF5EF] text-[#173F2D] border border-[#DDE6DF] font-bold"
+                    : "text-[#66736A] hover:text-[#18251D] hover:bg-[#F7FAF7]"
                 }`}
               >
                 <Icon className="w-4 h-4" />

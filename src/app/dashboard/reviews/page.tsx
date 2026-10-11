@@ -25,11 +25,11 @@ export default function UserReviewsPage() {
   return (
     <div className="space-y-8 max-w-4xl">
       <div>
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#173F2D] bg-[#EEF5EF] px-2.5 py-1 rounded-md border border-[#DDE6DF] inline-block mb-1">
           Customer Voice
         </span>
-        <h1 className="text-3xl font-extrabold text-slate-900 mt-0.5">My Reviews & Ratings</h1>
-        <p className="text-xs text-slate-500 mt-1">
+        <h1 className="text-3xl font-extrabold text-[#18251D] tracking-tight mt-0.5">My Reviews &amp; Ratings</h1>
+        <p className="text-xs text-[#66736A] mt-1">
           Track the reviews and ratings you have shared for rented vehicles.
         </p>
       </div>
@@ -38,41 +38,41 @@ export default function UserReviewsPage() {
         {reviews.map((rev) => (
           <div
             key={rev._id}
-            className="bg-white rounded-3xl border border-slate-200 p-6 shadow-xs space-y-3"
+            className="bg-white rounded-3xl border border-[#DDE6DF] p-6 shadow-xs space-y-3"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#EEF5EF] border border-[#DDE6DF] text-[#173F2D] flex items-center justify-center shrink-0">
                   <Car className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">{rev.carTitle}</h4>
-                  <span className="text-[11px] text-slate-400">Reviewed on {rev.date}</span>
+                  <h4 className="font-bold text-sm text-[#18251D]">{rev.carTitle}</h4>
+                  <span className="text-[11px] text-[#66736A]">Reviewed on {rev.date}</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-1 text-amber-400 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
-                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                <span className="text-xs font-bold text-slate-800">{rev.rating}.0</span>
+              <div className="flex items-center gap-1 text-[#A86B18] bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+                <Star className="w-3.5 h-3.5 fill-[#A86B18] text-[#A86B18]" />
+                <span className="text-xs font-bold text-[#A86B18]">{rev.rating}.0</span>
               </div>
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed italic pl-13">
+            <p className="text-xs text-[#66736A] leading-relaxed italic pl-13">
               &ldquo;{rev.comment}&rdquo;
             </p>
           </div>
         ))}
       </div>
 
-      <div className="bg-slate-100 rounded-3xl p-6 text-center space-y-3">
-        <MessageSquare className="w-6 h-6 text-slate-400 mx-auto" />
-        <h4 className="font-bold text-sm text-slate-800">Want to review another vehicle?</h4>
-        <p className="text-xs text-slate-500 max-w-sm mx-auto">
+      <div className="bg-white border border-[#DDE6DF] rounded-3xl p-6 text-center space-y-3 shadow-xs">
+        <MessageSquare className="w-6 h-6 text-[#173F2D] mx-auto" />
+        <h4 className="font-bold text-sm text-[#18251D]">Want to review another vehicle?</h4>
+        <p className="text-xs text-[#66736A] max-w-sm mx-auto">
           Completed a rental recently? You can leave ratings directly from your booking receipts.
         </p>
         <Link
           href="/dashboard/bookings"
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-emerald-600 transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#173F2D] text-white font-extrabold text-xs hover:bg-[#2F7650] transition-all cursor-pointer shadow-sm"
         >
           <span>Go to Booking Receipts</span>
           <ArrowRight className="w-3.5 h-3.5" />

@@ -35,17 +35,17 @@ export default function CarFilters({
   const seatOptions = ["All", "4", "5"];
 
   return (
-    <aside className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-[0_2px_8px_rgba(16,24,39,0.02)] space-y-6">
+    <aside className="bg-white rounded-2xl border border-[#DDE6DF] p-6 shadow-xs space-y-6 text-[#18251D]">
       {/* Filters Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+      <div className="flex items-center justify-between pb-3 border-b border-[#DDE6DF]">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal className="w-4 h-4 text-[#101827]" />
-          <h3 className="font-bold text-sm text-[#101827]">Filters</h3>
+          <SlidersHorizontal className="w-4 h-4 text-[#173F2D]" />
+          <h3 className="font-extrabold text-sm text-[#18251D]">Refine Fleet</h3>
         </div>
         <button
           type="button"
           onClick={onReset}
-          className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#64748B] hover:text-[#101827] transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1 text-[11px] font-bold text-[#66736A] hover:text-[#173F2D] transition-colors cursor-pointer"
         >
           <RotateCcw className="w-3 h-3" />
           <span>Reset</span>
@@ -54,25 +54,25 @@ export default function CarFilters({
 
       {/* 1. Keyword / Location Search */}
       <div>
-        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-1.5">
-          Search Vehicles
+        <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-1.5">
+          SEARCH VEHICLES
         </label>
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#94A3B8]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#66736A]" />
           <input
             type="text"
             value={filters.search}
             onChange={(e) => onChange({ search: e.target.value })}
             placeholder="Model, make, or UP hub..."
-            className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50/60 focus:bg-white text-[#172033] placeholder:text-[#94A3B8] focus:outline-hidden focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all"
+            className="w-full pl-9 pr-3 py-2.5 text-xs rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-[#18251D] placeholder:text-[#66736A] focus:outline-hidden focus:border-[#173F2D] focus:ring-1 focus:ring-[#173F2D] transition-all"
           />
         </div>
       </div>
 
       {/* 2. Car Type / Category */}
       <div>
-        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-2">
-          Vehicle Category
+        <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-2">
+          VEHICLE CATEGORY
         </label>
         <div className="flex flex-wrap gap-1.5">
           {categories.map((cat) => {
@@ -85,10 +85,10 @@ export default function CarFilters({
                 key={cat}
                 type="button"
                 onClick={() => onChange({ category: cat === "All" ? "" : cat })}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-[#101827] text-white shadow-xs font-bold"
-                    : "bg-slate-100 text-[#64748B] hover:bg-slate-200/70 hover:text-[#172033]"
+                    ? "bg-[#173F2D] text-white shadow-xs"
+                    : "bg-[#F7FAF7] text-[#66736A] hover:bg-[#EEF5EF] hover:text-[#18251D] border border-[#DDE6DF]"
                 }`}
               >
                 {cat}
@@ -101,10 +101,10 @@ export default function CarFilters({
       {/* 3. Price Range Slider */}
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <label className="text-[11px] font-bold uppercase tracking-wider text-[#64748B]">
-            Max Price / Day
+          <label className="text-[10px] font-bold uppercase tracking-wider text-[#173F2D]">
+            MAX PRICE / DAY
           </label>
-          <span className="text-xs font-bold text-[#101827]">
+          <span className="text-xs font-black text-[#18251D]">
             {formatCurrency(filters.maxPrice)}
           </span>
         </div>
@@ -115,9 +115,9 @@ export default function CarFilters({
           step={500}
           value={filters.maxPrice}
           onChange={(e) => onChange({ maxPrice: Number(e.target.value) })}
-          className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#101827]"
+          className="w-full h-1.5 bg-[#DDE6DF] rounded-lg appearance-none cursor-pointer accent-[#173F2D]"
         />
-        <div className="flex justify-between text-[10px] text-[#94A3B8] mt-1">
+        <div className="flex justify-between text-[10px] text-[#66736A] mt-1 font-medium">
           <span>₹2,000</span>
           <span>₹25,000/day</span>
         </div>
@@ -125,17 +125,17 @@ export default function CarFilters({
 
       {/* 4. Brand Filter */}
       <div>
-        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-1.5">
-          Manufacturer / Brand
+        <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-1.5">
+          MANUFACTURER / BRAND
         </label>
         <select
           value={filters.brand || "All"}
           onChange={(e) => onChange({ brand: e.target.value })}
-          className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs text-[#172033] bg-white focus:outline-hidden focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 cursor-pointer"
+          className="w-full px-3 py-2.5 rounded-xl border border-[#DDE6DF] text-xs text-[#18251D] bg-[#F7FAF7] focus:outline-hidden focus:border-[#173F2D] cursor-pointer"
         >
-          <option value="All">All Brands</option>
+          <option value="All" className="bg-white text-[#18251D]">All Brands</option>
           {availableBrands.map((b) => (
-            <option key={b} value={b}>
+            <option key={b} value={b} className="bg-white text-[#18251D]">
               {b}
             </option>
           ))}
@@ -144,8 +144,8 @@ export default function CarFilters({
 
       {/* 5. Transmission */}
       <div>
-        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-2">
-          Transmission
+        <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-2">
+          TRANSMISSION
         </label>
         <div className="grid grid-cols-3 gap-1.5">
           {transmissions.map((t) => {
@@ -157,10 +157,10 @@ export default function CarFilters({
                 key={t}
                 type="button"
                 onClick={() => onChange({ transmission: t === "All" ? "" : t })}
-                className={`py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer ${
+                className={`py-1.5 px-2 rounded-lg text-xs font-bold text-center transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-[#101827] text-white font-bold"
-                    : "bg-slate-100 text-[#64748B] hover:bg-slate-200/70"
+                    ? "bg-[#173F2D] text-white shadow-xs"
+                    : "bg-[#F7FAF7] text-[#66736A] hover:bg-[#EEF5EF] hover:text-[#18251D] border border-[#DDE6DF]"
                 }`}
               >
                 {t}
@@ -172,8 +172,8 @@ export default function CarFilters({
 
       {/* 6. Fuel Type */}
       <div>
-        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-2">
-          Fuel / Energy
+        <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-2">
+          FUEL / ENERGY
         </label>
         <div className="flex flex-wrap gap-1.5">
           {fuelTypes.map((f) => {
@@ -185,10 +185,10 @@ export default function CarFilters({
                 key={f}
                 type="button"
                 onClick={() => onChange({ fuelType: f === "All" ? "" : f })}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-[#101827] text-white font-bold"
-                    : "bg-slate-100 text-[#64748B] hover:bg-slate-200/70"
+                    ? "bg-[#173F2D] text-white shadow-xs"
+                    : "bg-[#F7FAF7] text-[#66736A] hover:bg-[#EEF5EF] hover:text-[#18251D] border border-[#DDE6DF]"
                 }`}
               >
                 {f}
@@ -200,8 +200,8 @@ export default function CarFilters({
 
       {/* 7. Seats */}
       <div>
-        <label className="block text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-2">
-          Passenger Seats
+        <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-2">
+          PASSENGER SEATS
         </label>
         <div className="flex gap-2">
           {seatOptions.map((s) => {
@@ -213,10 +213,10 @@ export default function CarFilters({
                 key={s}
                 type="button"
                 onClick={() => onChange({ seats: s === "All" ? "" : s })}
-                className={`flex-1 py-1.5 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer ${
+                className={`flex-1 py-1.5 rounded-lg text-xs font-bold text-center transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-[#101827] text-white font-bold"
-                    : "bg-slate-100 text-[#64748B] hover:bg-slate-200/70"
+                    ? "bg-[#173F2D] text-white shadow-xs"
+                    : "bg-[#F7FAF7] text-[#66736A] hover:bg-[#EEF5EF] hover:text-[#18251D] border border-[#DDE6DF]"
                 }`}
               >
                 {s === "All" ? "Any" : `${s} Seats`}
@@ -227,15 +227,15 @@ export default function CarFilters({
       </div>
 
       {/* 8. Availability Toggle */}
-      <div className="pt-2 border-t border-slate-100">
+      <div className="pt-3 border-t border-[#DDE6DF]">
         <label className="flex items-center gap-2.5 cursor-pointer">
           <input
             type="checkbox"
             checked={!!filters.availableOnly}
             onChange={(e) => onChange({ availableOnly: e.target.checked })}
-            className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-slate-300 accent-emerald-600 cursor-pointer"
+            className="w-4 h-4 rounded text-[#173F2D] focus:ring-[#173F2D] border-[#DDE6DF] bg-white accent-[#173F2D] cursor-pointer"
           />
-          <span className="text-xs font-medium text-[#172033]">
+          <span className="text-xs font-semibold text-[#18251D]">
             Available Now Only
           </span>
         </label>

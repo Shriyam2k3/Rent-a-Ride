@@ -45,21 +45,21 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-[75vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-xl space-y-6">
+    <div className="min-h-[75vh] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-md w-full bg-white rounded-2xl p-8 sm:p-10 border border-[#DDE6DF] shadow-md space-y-6 text-[#18251D]">
         {/* Header */}
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center mx-auto shadow-md">
-            <Car className="w-6 h-6 text-emerald-400" />
+          <div className="w-12 h-12 rounded-xl bg-[#173F2D] flex items-center justify-center text-white mx-auto shadow-xs">
+            <Car className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Welcome Back</h2>
-          <p className="text-xs text-slate-500">
+          <h2 className="text-2xl font-black text-[#18251D] tracking-tight">Welcome Back</h2>
+          <p className="text-xs text-[#66736A]">
             Sign in to access your reservations and manage your rental fleet.
           </p>
         </div>
 
         {error && (
-          <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs">
+          <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-[#B42318] text-xs">
             {error}
           </div>
         )}
@@ -69,7 +69,7 @@ function LoginForm() {
           type="button"
           onClick={handleGoogleLogin}
           disabled={loading}
-          className="w-full flex items-center justify-center gap-3 py-2.5 px-4 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-xs font-semibold text-slate-700 shadow-2xs hover:bg-slate-50 transition-colors"
+          className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl border border-[#DDE6DF] bg-white hover:bg-[#F7FAF7] text-xs font-bold text-[#18251D] transition-colors cursor-pointer"
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24">
             <path
@@ -93,8 +93,8 @@ function LoginForm() {
         </button>
 
         <div className="relative flex items-center justify-center">
-          <div className="border-t border-slate-200 w-full" />
-          <span className="bg-white px-3 text-[11px] uppercase font-bold text-slate-400 absolute">
+          <div className="border-t border-[#DDE6DF] w-full" />
+          <span className="bg-white px-3 text-[10px] uppercase font-bold text-[#66736A] absolute">
             Or with email
           </span>
         </div>
@@ -102,8 +102,8 @@ function LoginForm() {
         {/* Email & Password Form */}
         <form onSubmit={handleEmailLogin} className="space-y-4">
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1 flex items-center gap-1">
-              <Mail className="w-3.5 h-3.5 text-slate-400" />
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-[#173F2D] mb-1 flex items-center gap-1">
+              <Mail className="w-3.5 h-3.5" />
               Email Address
             </label>
             <input
@@ -112,14 +112,14 @@ function LoginForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-hidden focus:border-emerald-600"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] placeholder:text-[#66736A] focus:outline-hidden focus:border-[#173F2D]"
             />
           </div>
 
           <div>
             <div className="flex justify-between items-center mb-1">
-              <label className="text-xs font-semibold uppercase tracking-wider text-slate-600 flex items-center gap-1">
-                <Lock className="w-3.5 h-3.5 text-slate-400" />
+              <label className="text-[10px] font-bold uppercase tracking-wider text-[#173F2D] flex items-center gap-1">
+                <Lock className="w-3.5 h-3.5" />
                 Password
               </label>
             </div>
@@ -129,14 +129,14 @@ function LoginForm() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-hidden focus:border-emerald-600"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] placeholder:text-[#66736A] focus:outline-hidden focus:border-[#173F2D]"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+            className="w-full py-3.5 px-4 rounded-xl bg-[#173F2D] hover:bg-[#2F7650] text-white font-bold text-xs uppercase tracking-wider shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
           >
             {loading ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -150,9 +150,9 @@ function LoginForm() {
         </form>
 
         {/* Register link */}
-        <p className="text-center text-xs text-slate-500">
+        <p className="text-center text-xs text-[#66736A]">
           Don&apos;t have an account yet?{" "}
-          <Link href="/register" className="font-bold text-emerald-600 hover:underline">
+          <Link href="/register" className="font-bold text-[#173F2D] hover:underline">
             Create an account
           </Link>
         </p>
@@ -163,7 +163,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="py-20 text-center text-sm text-slate-500">Loading sign in...</div>}>
+    <Suspense fallback={<div className="py-20 text-center text-sm text-[#66736A]">Loading sign in...</div>}>
       <LoginForm />
     </Suspense>
   );

@@ -79,36 +79,36 @@ export default function AdminCarsPage() {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200/60 inline-block mb-1">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#173F2D] bg-[#EEF5EF] px-2.5 py-1 rounded-md border border-[#DDE6DF] inline-block mb-1">
             Fleet Operations
           </span>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#172033] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#18251D] tracking-tight">
             Fleet Inventory Management
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
-            Manage your premium vehicles, rental rates, specifications, and availability across Prayagraj & UP.
+          <p className="text-xs text-[#66736A] mt-1">
+            Manage your premium vehicles, rental rates, specifications, and availability across Prayagraj &amp; UP.
           </p>
         </div>
 
         <Link
           href="/admin/cars/new"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#101827] hover:bg-[#172033] text-white font-bold text-xs shadow-sm transition-all hover:shadow-md cursor-pointer"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#173F2D] hover:bg-[#2F7650] text-white font-extrabold text-xs shadow-sm transition-all cursor-pointer"
         >
-          <PlusCircle className="w-4 h-4 text-emerald-400" />
+          <PlusCircle className="w-4 h-4 text-white" />
           <span>Add New Vehicle</span>
         </Link>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-white border border-slate-200/80 p-4 rounded-2xl shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-white border border-[#DDE6DF] p-4 rounded-2xl shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="relative w-full sm:w-80">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#66736A] absolute left-3.5 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search make, model, or brand..."
-            className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-[#172033] placeholder:text-slate-400 focus:outline-hidden focus:border-emerald-600 focus:bg-white transition-all"
+            className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#F7FAF7] border border-[#DDE6DF] text-xs text-[#18251D] placeholder:text-[#66736A] focus:outline-hidden focus:border-[#173F2D] transition-all"
           />
         </div>
 
@@ -120,8 +120,8 @@ export default function AdminCarsPage() {
               onClick={() => setCategory(cat)}
               className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 category === cat
-                  ? "bg-[#101827] text-white shadow-xs font-bold"
-                  : "bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200"
+                  ? "bg-[#173F2D] text-white font-extrabold shadow-sm"
+                  : "bg-white border border-[#DDE6DF] text-[#66736A] hover:text-[#18251D] hover:bg-[#F7FAF7]"
               }`}
             >
               {cat}
@@ -131,30 +131,30 @@ export default function AdminCarsPage() {
       </div>
 
       {/* Vehicles Table / Grid */}
-      <div className="bg-white border border-slate-200/80 rounded-3xl shadow-xs overflow-hidden">
+      <div className="bg-white border border-[#DDE6DF] rounded-3xl shadow-xs overflow-hidden">
         {loading ? (
-          <div className="py-24 flex flex-col items-center justify-center gap-3 text-slate-400">
-            <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
-            <p className="text-xs font-medium text-slate-500">Loading fleet catalogue...</p>
+          <div className="py-24 flex flex-col items-center justify-center gap-3 text-[#66736A]">
+            <Loader2 className="w-8 h-8 animate-spin text-[#173F2D]" />
+            <p className="text-xs font-medium text-[#66736A]">Loading fleet catalogue...</p>
           </div>
         ) : filteredCars.length === 0 ? (
-          <div className="py-20 text-center text-xs text-slate-500 space-y-3">
-            <Car className="w-8 h-8 text-slate-300 mx-auto" />
-            <p className="font-semibold text-slate-700">No vehicles match your search filter.</p>
+          <div className="py-20 text-center text-xs text-[#66736A] space-y-3">
+            <Car className="w-8 h-8 text-[#66736A] mx-auto" />
+            <p className="font-semibold text-[#18251D]">No vehicles match your search filter.</p>
             <button
               onClick={() => {
                 setSearch("");
                 setCategory("All");
               }}
-              className="text-xs font-bold text-emerald-600 hover:underline"
+              className="text-xs font-bold text-[#173F2D] hover:underline cursor-pointer"
             >
               Reset Filters
             </button>
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs text-slate-600">
-              <thead className="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-400 font-semibold border-b border-slate-200/80">
+            <table className="w-full text-left text-xs text-[#18251D]">
+              <thead className="bg-[#F7FAF7] text-[11px] uppercase tracking-wider text-[#66736A] font-semibold border-b border-[#DDE6DF]">
                 <tr>
                   <th className="px-6 py-3.5">Vehicle</th>
                   <th className="px-6 py-3.5">Brand</th>
@@ -166,13 +166,13 @@ export default function AdminCarsPage() {
                   <th className="px-6 py-3.5 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 font-medium">
+              <tbody className="divide-y divide-[#DDE6DF] font-medium">
                 {filteredCars.map((car) => (
-                  <tr key={car._id} className="hover:bg-slate-50/70 transition-colors">
+                  <tr key={car._id} className="hover:bg-[#F7FAF7] transition-colors">
                     {/* Vehicle */}
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="relative w-16 h-11 rounded-xl bg-slate-100 overflow-hidden shrink-0 border border-slate-200/80">
+                        <div className="relative w-16 h-11 rounded-xl bg-[#F7FAF7] overflow-hidden shrink-0 border border-[#DDE6DF]">
                           <Image
                             src={car.images?.[0] || "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=200&q=80"}
                             alt={car.title}
@@ -181,8 +181,8 @@ export default function AdminCarsPage() {
                           />
                         </div>
                         <div>
-                          <p className="font-bold text-[#172033] line-clamp-1">{car.title}</p>
-                          <p className="text-[11px] text-slate-400">
+                          <p className="font-bold text-[#18251D] line-clamp-1">{car.title}</p>
+                          <p className="text-[11px] text-[#66736A]">
                             {car.year} • {car.transmission} • {car.fuelType}
                           </p>
                         </div>
@@ -190,44 +190,44 @@ export default function AdminCarsPage() {
                     </td>
 
                     {/* Brand */}
-                    <td className="px-6 py-4 font-bold text-slate-800">
+                    <td className="px-6 py-4 font-bold text-[#18251D]">
                       {car.brand}
                     </td>
 
                     {/* Category */}
                     <td className="px-6 py-4">
-                      <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-slate-100 text-slate-800 uppercase tracking-wider border border-slate-200">
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-bold bg-[#EEF5EF] text-[#173F2D] uppercase tracking-wider border border-[#DDE6DF]">
                         {car.category}
                       </span>
                     </td>
 
                     {/* Daily Rate */}
-                    <td className="px-6 py-4 font-extrabold text-[#172033]">
+                    <td className="px-6 py-4 font-extrabold text-[#18251D]">
                       {formatCurrency(car.dailyRate)}
-                      <span className="text-[11px] font-normal text-slate-400"> /day</span>
+                      <span className="text-[11px] font-normal text-[#66736A]"> /day</span>
                     </td>
 
                     {/* Rating */}
                     <td className="px-6 py-4">
-                      <div className="flex items-center gap-1 text-amber-500 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/60 w-fit">
-                        <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                      <div className="flex items-center gap-1 text-[#A86B18] bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200 w-fit">
+                        <Star className="w-3 h-3 fill-[#A86B18] text-[#A86B18]" />
                         <span className="font-bold text-[11px]">{car.rating ? car.rating.toFixed(1) : "5.0"}</span>
-                        <span className="text-[10px] text-slate-400">({car.reviewCount || 0})</span>
+                        <span className="text-[10px] text-[#66736A]">({car.reviewCount || 0})</span>
                       </div>
                     </td>
 
                     {/* Hub Location */}
-                    <td className="px-6 py-4 text-slate-600">
+                    <td className="px-6 py-4 text-[#18251D]">
                       <div className="flex items-center gap-1 truncate max-w-[140px]">
-                        <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                        <MapPin className="w-3 h-3 text-[#173F2D] shrink-0" />
                         <span className="truncate">{car.location?.city || "Prayagraj"}</span>
                       </div>
                     </td>
 
                     {/* Availability */}
                     <td className="px-6 py-4">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#EEF5EF] text-[#237447] border border-[#DDE6DF]">
+                        <CheckCircle2 className="w-3 h-3 text-[#237447]" />
                         Available
                       </span>
                     </td>
@@ -239,14 +239,14 @@ export default function AdminCarsPage() {
                           href={`/cars/${car._id}`}
                           target="_blank"
                           title="View public details"
-                          className="p-1.5 rounded-lg border border-slate-200 text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+                          className="p-1.5 rounded-lg border border-[#DDE6DF] text-[#66736A] hover:text-[#18251D] hover:bg-[#F7FAF7] transition-colors"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </Link>
                         <Link
                           href={`/admin/cars/${car._id}/edit`}
                           title="Edit vehicle"
-                          className="p-1.5 rounded-lg border border-slate-200 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
+                          className="p-1.5 rounded-lg border border-[#DDE6DF] text-[#66736A] hover:text-[#173F2D] hover:bg-[#EEF5EF] transition-colors"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </Link>
@@ -255,7 +255,7 @@ export default function AdminCarsPage() {
                           onClick={() => handleDelete(car._id, car.title)}
                           disabled={deletingId === car._id}
                           title="Delete vehicle"
-                          className="p-1.5 rounded-lg border border-slate-200 text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                          className="p-1.5 rounded-lg border border-[#DDE6DF] text-[#66736A] hover:text-[#B42318] hover:bg-red-50 transition-colors cursor-pointer"
                         >
                           {deletingId === car._id ? (
                             <Loader2 className="w-3.5 h-3.5 animate-spin" />

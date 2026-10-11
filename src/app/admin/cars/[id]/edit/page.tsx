@@ -116,9 +116,9 @@ export default function EditCarPage({
 
   if (loading) {
     return (
-      <div className="py-24 flex flex-col items-center justify-center gap-3 text-slate-400">
-        <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
-        <p className="text-xs font-medium text-slate-500">Loading vehicle details...</p>
+      <div className="py-24 flex flex-col items-center justify-center gap-3 text-[#66736A]">
+        <Loader2 className="w-8 h-8 animate-spin text-[#173F2D]" />
+        <p className="text-xs font-medium text-[#66736A]">Loading vehicle details...</p>
       </div>
     );
   }
@@ -127,34 +127,34 @@ export default function EditCarPage({
     <div className="max-w-4xl mx-auto space-y-6">
       <Link
         href="/admin/cars"
-        className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#66736A] hover:text-[#18251D] transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         <span>Back to Fleet Directory</span>
       </Link>
 
       <div>
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200/60 inline-block mb-1">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#173F2D] bg-[#EEF5EF] px-2.5 py-1 rounded-md border border-[#DDE6DF] inline-block mb-1">
           Fleet Editor
         </span>
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#172033] tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-[#18251D] tracking-tight">
           Edit Vehicle Details
         </h1>
-        <p className="text-xs text-slate-500 mt-1">
+        <p className="text-xs text-[#66736A] mt-1">
           Update specifications, rental rates, and station assignments for {formData.title}.
         </p>
       </div>
 
       {errorMessage && (
-        <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+        <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-[#B42318] text-xs font-semibold">
           {errorMessage}
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xs">
+      <form onSubmit={handleSubmit} className="bg-white border border-[#DDE6DF] rounded-3xl p-6 sm:p-8 space-y-6 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
               Make / Brand
             </label>
             <input
@@ -162,12 +162,12 @@ export default function EditCarPage({
               required
               value={formData.brand}
               onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
               Model
             </label>
             <input
@@ -175,12 +175,12 @@ export default function EditCarPage({
               required
               value={formData.model}
               onChange={(e) => setFormData({ ...formData, model: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
               Year
             </label>
             <input
@@ -188,13 +188,13 @@ export default function EditCarPage({
               required
               value={formData.year}
               onChange={(e) => setFormData({ ...formData, year: Number(e.target.value) })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+          <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
             Listing Title
           </label>
           <input
@@ -202,19 +202,19 @@ export default function EditCarPage({
             required
             value={formData.title}
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
           />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
               Category
             </label>
             <select
               value={formData.category}
               onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600 bg-white"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
             >
               <option value="SUV">SUV</option>
               <option value="Sedan">Sedan</option>
@@ -226,7 +226,7 @@ export default function EditCarPage({
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
               Daily Rate (₹ INR)
             </label>
             <input
@@ -234,18 +234,18 @@ export default function EditCarPage({
               required
               value={formData.dailyRate}
               onChange={(e) => setFormData({ ...formData, dailyRate: Number(e.target.value) })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
               Transmission
             </label>
             <select
               value={formData.transmission}
               onChange={(e) => setFormData({ ...formData, transmission: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600 bg-white"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
             >
               <option value="Automatic">Automatic</option>
               <option value="Manual">Manual</option>
@@ -254,50 +254,50 @@ export default function EditCarPage({
         </div>
 
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+          <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
             Image URL
           </label>
           <input
             type="text"
             value={formData.imageUrl}
             onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D]"
           />
           {formData.imageUrl && (
-            <div className="mt-3 relative w-40 h-28 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
+            <div className="mt-3 relative w-40 h-28 rounded-2xl overflow-hidden bg-[#F7FAF7] border border-[#DDE6DF]">
               <Image src={formData.imageUrl} alt="Car" fill className="object-cover" />
             </div>
           )}
         </div>
 
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+          <label className="block text-xs font-bold uppercase tracking-wider text-[#66736A] mb-1">
             Marketing Description
           </label>
           <textarea
             rows={3}
             value={formData.description}
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-[#172033] focus:outline-hidden focus:border-emerald-600 resize-none"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-[#DDE6DF] bg-[#F7FAF7] text-xs text-[#18251D] focus:outline-hidden focus:border-[#173F2D] resize-none"
           />
         </div>
 
-        <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+        <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#DDE6DF]">
           <Link
             href="/admin/cars"
-            className="px-5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-100"
+            className="px-5 py-2.5 rounded-xl border border-[#DDE6DF] text-xs font-bold text-[#66736A] hover:bg-[#F7FAF7]"
           >
             Cancel
           </Link>
           <button
             type="submit"
             disabled={submitting}
-            className="px-6 py-2.5 rounded-xl bg-[#101827] hover:bg-[#172033] text-white font-bold text-xs flex items-center gap-2 shadow-sm cursor-pointer disabled:opacity-50"
+            className="px-6 py-2.5 rounded-xl bg-[#173F2D] hover:bg-[#2F7650] text-white font-bold text-xs flex items-center gap-2 shadow-sm cursor-pointer disabled:opacity-50"
           >
             {submitting ? (
-              <Loader2 className="w-4 h-4 animate-spin text-emerald-400" />
+              <Loader2 className="w-4 h-4 animate-spin text-white" />
             ) : (
-              <Save className="w-4 h-4 text-emerald-400" />
+              <Save className="w-4 h-4 text-white" />
             )}
             <span>Save Changes</span>
           </button>
