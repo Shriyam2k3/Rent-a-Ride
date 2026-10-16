@@ -1,0 +1,11 @@
+services:
+  rent-a-ride:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rent-a-ride
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env.local
+    restart: unless-stopped
