@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "leaflet/dist/leaflet.css";
 import { AuthProvider } from "@/lib/firebase/auth-context";
 import { ThemeProvider } from "@/context/theme-context";
 import { LanguageProvider } from "@/context/language-context";

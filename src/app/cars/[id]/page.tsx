@@ -7,6 +7,7 @@ import { ICar, IReview } from "@/types";
 import BookingWidget from "@/components/booking-widget";
 import ReviewModal from "@/components/review-modal";
 import { useAuth } from "@/lib/firebase/auth-context";
+import dynamic from "next/dynamic";
 import {
   Star,
   Users,
@@ -20,6 +21,15 @@ import {
   MapPin,
   MessageSquare,
 } from "lucide-react";
+
+const HubLocationMap = dynamic(() => import("@/components/map/hub-location-map"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[320px] rounded-2xl bg-[#EEF5EF] flex items-center justify-center text-xs text-[#173F2D] font-bold">
+      Loading pickup station map...
+    </div>
+  ),
+});
 
 export default function CarDetailPage({
   params,
@@ -245,6 +255,20 @@ export default function CarDetailPage({
               </div>
             </div>
           )}
+
+          {/* Vehicle Station & Depot Map */}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-xs text-[#173F2D] uppercase tracking-wider">
+                Pickup Depot & Station Location
+              </h3>
+              <span className="text-xs text-[#66736A] flex items-center gap-1 font-semibold">
+                <MapPin className="w-3.5 h-3.5 text-[#173F2D]" />
+                {car.location?.city || "Prayagraj Hub"}
+              </span>
+            </div>
+            <HubLocationMap />
+          </div>
 
           {/* Guarantee / Policy */}
           <div className="bg-[#EEF5EF] rounded-2xl border border-[#DDE6DF] p-6 flex items-start gap-4 text-xs text-[#18251D] shadow-xs">

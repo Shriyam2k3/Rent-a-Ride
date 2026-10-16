@@ -7,6 +7,7 @@ import Image from "next/image";
 import { ICar, IReview } from "@/types";
 import CarCard from "@/components/car-card";
 import { useLanguage } from "@/context/language-context";
+import dynamic from "next/dynamic";
 import {
   MapPin,
   Calendar,
@@ -28,6 +29,15 @@ import {
   ShieldCheck,
   Receipt,
 } from "lucide-react";
+
+const HubLocationMap = dynamic(() => import("@/components/map/hub-location-map"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[420px] rounded-2xl bg-[#EEF5EF] flex items-center justify-center text-xs text-[#173F2D] font-bold">
+      Loading Rent-a-Ride Hub Station Network...
+    </div>
+  ),
+});
 
 export default function HomePage() {
   const router = useRouter();
@@ -646,6 +656,26 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* 4.5. INTERACTIVE FLEET STATION NETWORK (Geoapify Maps API) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-[#DDE6DF]">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#173F2D] flex items-center gap-1.5">
+              <Navigation className="w-3.5 h-3.5" />
+              <span>STATION NETWORK & COVERAGE</span>
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-[#18251D] tracking-tight mt-1">
+              Explore Our Hubs & Pickups
+            </h2>
+          </div>
+          <p className="text-xs text-[#66736A] max-w-md">
+            Interactive map powered by Geoapify. Select any depot across Prayagraj, Lucknow, and Varanasi to discover available fleet units.
+          </p>
+        </div>
+
+        <HubLocationMap height="h-[420px]" />
       </section>
 
       {/* 5. VERIFIED REVIEWS */}
